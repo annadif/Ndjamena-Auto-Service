@@ -90,7 +90,7 @@ export function Gallery() {
           </div>
         </motion.div>
 
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+        <motion.div layout className="grid grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-5">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, index) => (
               <motion.div
@@ -107,13 +107,13 @@ export function Gallery() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-44 object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-32 sm:h-44 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.category}</p>
+                <div className="p-3 sm:p-4">
+                  <h3 className="text-sm sm:text-lg mb-1">{item.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">{item.category}</p>
                 </div>
               </motion.div>
             ))}

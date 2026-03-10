@@ -58,7 +58,7 @@ export function WhyChooseUs() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
@@ -74,12 +74,12 @@ export function WhyChooseUs() {
                 <motion.div
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
-                  className="bg-gradient-to-br from-primary to-accent w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/30"
+                  className="bg-gradient-to-br from-primary to-accent w-14 h-14 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg shadow-primary/30"
                 >
-                  <Icon size={36} />
+                  <Icon size={24} className="sm:w-[36px] sm:h-[36px]" />
                 </motion.div>
-                <h3 className="text-xl mb-3">{reason.title}</h3>
-                <p className="text-white/70 leading-relaxed">
+                <h3 className="text-base sm:text-xl mb-2 sm:mb-3">{reason.title}</h3>
+                <p className="text-xs sm:text-base text-white/70 leading-relaxed">
                   {reason.description}
                 </p>
               </motion.div>

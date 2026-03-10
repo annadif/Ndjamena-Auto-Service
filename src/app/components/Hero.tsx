@@ -11,10 +11,10 @@ export function Hero() {
   };
 
   return (
-    <section id="accueil" className="relative pt-20 min-h-screen flex items-center overflow-hidden">
+    <section id="accueil" className="relative pt-20 min-h-[72vh] md:min-h-screen flex items-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/20 to-background">
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-45 md:opacity-35">
           <img
             src={carouselImg}
             alt="N'Djamena Auto Service"
@@ -55,7 +55,7 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-4 py-14 md:py-20 relative z-10">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -38,7 +38,7 @@ export function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -47,7 +47,7 @@ export function Testimonials() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-muted/50 backdrop-blur-sm p-8 rounded-xl relative border border-border hover:border-primary/30 transition-all"
+              className="bg-muted/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl relative border border-border hover:border-primary/30 transition-all"
             >
               <motion.div
                 initial={{ scale: 0, rotate: -180 }}
@@ -55,7 +55,7 @@ export function Testimonials() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 + 0.2, type: 'spring' }}
               >
-                <Quote className="absolute top-4 right-4 text-primary/20" size={48} />
+                <Quote className="absolute top-4 right-4 text-primary/20" size={32} />
               </motion.div>
 
               <div className="flex gap-1 mb-4">
@@ -67,18 +67,18 @@ export function Testimonials() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 + 0.3 + i * 0.05 }}
                   >
-                    <Star size={20} className="fill-accent text-accent" />
+                    <Star size={16} className="fill-accent text-accent sm:w-5 sm:h-5" />
                   </motion.div>
                 ))}
               </div>
 
-              <p className="text-foreground mb-6 leading-relaxed italic">
+              <p className="text-sm sm:text-base text-foreground mb-4 sm:mb-6 leading-relaxed italic">
                 "{testimonial.text}"
               </p>
 
               <div>
-                <h4 className="mb-1">{testimonial.name}</h4>
-                <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                <h4 className="text-sm sm:text-base mb-1">{testimonial.name}</h4>
+                <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.role}</p>
               </div>
             </motion.div>
           ))}
