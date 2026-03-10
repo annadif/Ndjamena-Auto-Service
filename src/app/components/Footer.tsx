@@ -1,20 +1,7 @@
-import { useState } from 'react';
-import { Facebook, Instagram, MapPin, Phone, Mail, Clock, MessageCircle, Send } from 'lucide-react';
+import { Facebook, Instagram, MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import logo from '../../assets/logo.png';
 
 export function Footer() {
-  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const msg = `Bonjour, je suis ${formData.name}. ${formData.message}`;
-    window.open(`https://wa.me/23566740154?text=${encodeURIComponent(msg)}`, '_blank');
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   const scrollToSection = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
@@ -30,8 +17,8 @@ export function Footer() {
     <footer id="contact" className="bg-secondary text-white">
       <div className="container mx-auto px-4 pt-12 pb-8">
 
-        {/* ── Single row : Logo · Links · Services · Contact · Form · Map ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6 mb-10 items-start">
+        {/* ── Single row : Logo · Links · Services · Contact · Map ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 mb-10 items-start">
 
           {/* Logo */}
           <div>
@@ -44,7 +31,7 @@ export function Footer() {
           {/* Liens rapides */}
           <div>
             <h4 className="text-sm font-semibold mb-3">Liens rapides</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-0">
               {[['accueil','Accueil'],['services','Services'],['galerie','Galerie'],['contact','Contact']].map(([id, label]) => (
                 <li key={id}>
                   <button onClick={() => scrollToSection(id)}
@@ -59,7 +46,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-sm font-semibold mb-3">Nos services</h4>
-            <ul className="space-y-2 text-white/60 text-xs">
+            <ul className="space-y-0 text-white/60 text-xs">
               {['Plastification PPF','Teinte des vitres','Covering vinyle','Protection anti-rayures'].map(s => (
                 <li key={s}>{s}</li>
               ))}
@@ -69,9 +56,9 @@ export function Footer() {
           {/* Contact info */}
           <div>
             <h4 className="text-sm font-semibold mb-3">Contact</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-0">
               {contactDetails.map(({ icon: Icon, content, href }) => (
-                <li key={content} className="flex items-start gap-2">
+                <li key={content} className="flex items-start gap-1.5">
                   <Icon size={12} className="text-primary flex-shrink-0 mt-0.5" />
                   {href ? (
                     <a href={href} target={href.startsWith('http') ? '_blank' : undefined}
@@ -85,33 +72,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Formulaire */}
-          <div>
-            <h4 className="text-sm font-semibold mb-3">Envoyez-nous un message</h4>
-            <form onSubmit={handleSubmit} className="space-y-2">
-              <input
-                type="text" name="name" value={formData.name} onChange={handleChange}
-                required placeholder="Votre nom"
-                className="w-full px-2.5 py-1.5 bg-white/5 border border-white/15 rounded-md text-white text-xs placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition"
-              />
-              <input
-                type="tel" name="phone" value={formData.phone} onChange={handleChange}
-                required placeholder="+235 XX XX XX XX"
-                className="w-full px-2.5 py-1.5 bg-white/5 border border-white/15 rounded-md text-white text-xs placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition"
-              />
-              <textarea
-                name="message" value={formData.message} onChange={handleChange}
-                required rows={3} placeholder="Décrivez votre besoin..."
-                className="w-full px-2.5 py-1.5 bg-white/5 border border-white/15 rounded-md text-white text-xs placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition resize-none"
-              />
-              <button type="submit"
-                className="w-full bg-primary text-white px-3 py-2 rounded-md hover:bg-primary/90 transition-all flex items-center justify-center gap-1.5 text-xs font-medium">
-                <Send size={12} />
-                Envoyer via WhatsApp
-              </button>
-            </form>
           </div>
 
           {/* Map */}
